@@ -1,0 +1,34 @@
+{
+    // === Markdown 核心配置 ===
+    
+    "markdown.preview.scrollEditorWithPreview": true,
+    "markdown.preview.scrollPreviewWithEditor": true,
+    "markdown.allInOne.autoIndent": true,
+    "markdown.allInOne.tableFormatter.enabled": true,
+
+    // === Paste Image 配置（图片自动保存到 img 文件夹） ===
+    "pasteImage.path": "${currentFileDir}/img",
+    "pasteImage.prefix": "./img/",
+    "pasteImage.encodePath": "urlEncode",
+
+    // === markdownlint 配置（只保留关键规则，屏蔽烦人警告） ===
+    "markdownlint.config": {
+        "default": true,
+        "MD001": false, // 关闭标题层级跳级检查
+        "MD022": false, // 关闭标题空行检查
+        "MD033": {      // 允许 br 标签（解决表格换行警告）
+            "allowed_elements": ["br"]
+        },
+        "MD060": false, // 关闭表格竖线对齐检查
+        "MD012": false  // 关闭连续空行检查
+    },
+
+    // === 编辑器辅助配置 ===
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "markdown.validate.enabled": true
+    
+}
