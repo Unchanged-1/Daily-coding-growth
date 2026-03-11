@@ -50,5 +50,37 @@
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one" // 默认格式化工具
     },
-    "markdown.validate.enabled": true
+    "markdown.validate.enabled": true,
+
+    // === 新增：C/C++ 核心配置（解决误报+语言识别） ===
+    // 1. 强制文件关联，杜绝.cpp被识别为C语言
+    "files.associations": {
+        "*.cpp": "cpp",
+        "*.hpp": "cpp",
+        "*.c++": "cpp",
+        "*.cc": "cpp",
+        "*.h": "cpp" // 头文件也关联为C++，避免解析错误
+    },
+    // 2. 指定C++编译器路径和标准，匹配tasks.json配置
+    "C_Cpp.default.compilerPath": "D:\\VScode\\mingw64\\bin\\g++.exe",
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.cStandard": "c11",
+    // 3. 关闭系统头文件误报（核心解决红波浪线问题）
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.intelliSenseMode": "gcc-x64",
+    "C_Cpp.browse": {
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": "",
+        "path": [
+            "${workspaceFolder}",
+            "D:\\VScode\\mingw64\\include" // 指定编译器头文件路径，辅助解析
+        ]
+    },
+    // 4. 屏蔽不必要的C/C++警告
+    "C_Cpp.warningConfiguration": "Minimal",
+    // 5. 保存时自动格式化C/C++代码（可选，保持代码整洁）
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
 }
