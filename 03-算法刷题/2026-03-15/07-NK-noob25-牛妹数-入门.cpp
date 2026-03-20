@@ -21,7 +21,7 @@ using namespace std;
 int main (){
     int n;
     cin>>n;
-    // 修正：题目核心条件是「>50 且 偶数」（你的代码此处逻辑正确，题目描述笔误为>5）
+  
     if(n>50 && n%2==0){  
         cout<<"yes"<<endl;
     }
